@@ -53,4 +53,26 @@ function dynamicArray(n, queries) {
 
 }
 queries = [[1,0,5],[1,1,7],[1,0,3],[2,1,0],[2,1,1]]
-// dynamicArray(2,queries)
+
+
+//Grid Challenge
+//Given a square grid of characters in the range ascii[a-z], rearrange elements of each row alphabetically, ascending. Determine if the columns are also in ascending alphabetical order, top to bottom. Return YES if they are or NO if they are not.
+
+function gridChallenge(grid) {
+  // Write your code here
+  let rows = grid.length
+  let columns = grid[0].length
+  for (let i = 0; i<rows; i++) {
+    grid[i].sort()
+  }
+  for (let j = 0; j<columns; j++) {
+    for (let k = 0; k<grid.length -1; k++){
+      if (grid[k][j] > grid[k +1][j]) {
+        return 'NO'
+      }
+    }
+  }
+  return 'YES'
+}
+
+grid = [['a','b','c'],['g','z','z'],['g','e','f']]
