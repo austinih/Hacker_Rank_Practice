@@ -27,3 +27,30 @@ function maxMin(k, arr) {
   }
   return minDiff
 }
+
+//  Dynamic Array
+
+
+function dynamicArray(n, queries) {
+  // Write your code here
+  let lastAnswer = 0
+  let arr = []
+  let answers = []
+  for (let i = 0; i < n; i++) {
+      arr[i] = []
+  }
+  for (j = 0; j < queries.length; j++) {
+    let idx = (queries[j][1] ^ lastAnswer) % n
+    let y = (queries[j][2])
+    if (queries[j][0] == 1) {
+      arr[idx].push(y)
+    } else  {
+      lastAnswer = arr[idx][y % (arr[idx].length)]
+      answers.push(lastAnswer)
+    }
+  }
+  return answers
+
+}
+queries = [[1,0,5],[1,1,7],[1,0,3],[2,1,0],[2,1,1]]
+// dynamicArray(2,queries)
