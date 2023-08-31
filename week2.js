@@ -76,3 +76,32 @@ function gridChallenge(grid) {
 }
 
 grid = [['a','b','c'],['g','z','z'],['g','e','f']]
+
+
+// Sherlock and Array
+//Watson gives Sherlock an array of integers. His challenge is to find an element of the array such that the sum of all elements to the left is equal to the sum of all elements to the right.
+
+function balancedSums(arr) {
+  // Write your code here
+  // 1. get total sum of array
+  // 2. Create loop that 
+      // a. sum of [i] + previous sum
+      // b. compares sum to total sum - ([i]+1)
+      // c. if == then 'YES', else 'NO'
+      
+  const totalSum = arr.reduce((acc, curVal) => acc + curVal, 0)
+  let leftSum = 0
+  for (let i = 0; i<arr.length; i++) {
+    let value = arr[i]
+    if (leftSum == (totalSum - leftSum - value)) {
+      return "YES"
+    } else {
+      leftSum += value
+    }
+  }
+  return "NO"
+}
+
+let testArray = [2,0,0,0]
+
+balancedSums(testArray)
